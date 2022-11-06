@@ -1,0 +1,596 @@
+<!-- 
+code : portfolio
+created by : Ism Ibrahim
+Date:29/10/2022 -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="https://cdn.rawgit.com/ismIbrahim/aos/2.1.1/dist/aos.css" rel="stylesheet">    
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ism/libs/animejs/2.0.2/anime.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <meta name="viewport" content="width=1280, initial-scale=1, user-scalable=no">
+<style type="text/css">
+  @media only screen and (device-width:1280px), 
+  only screen and (max-width:1280px){
+    body{
+      overflow-y: auto;
+      margin: 0%;
+      padding: 0%;
+      scroll-behavior: auto;
+      background-color: #000000;
+    }
+  }
+   #portfolio
+   {
+    display: none;
+   }
+    #sidebar
+    {
+
+        position: fixed;
+        top: 10;
+
+        height:100%;
+        border-radius:0px;
+        width: 200px;
+        left: -250px;
+        transition: left 500ms linear;    
+         background: #131414;
+      box-shadow: inset 5px 5px 10px #080808, 
+                  inset -5px -5px 10px #1e2020;
+        z-index:1;
+    }
+    .list
+    {
+        position: absolute;
+        left: 0;
+        margin-top: 20px;
+
+    }
+    .list ul
+    {
+        display: inline-block;
+        
+    }
+    .list ul li
+    {
+
+        list-style-type: none;
+        width: 50px;
+        margin-left:10px;
+        text-align:justify;
+        margin-top: 20px;
+        font-size: 12px;
+        font-family: Trebuchet MS;
+        text-transform: uppercase;
+    }
+    .list ul li:hover
+    {
+         font-size:16px;
+         font-weight: bold;
+         
+    }
+    #toggle
+    {
+        position: relative;
+        top: 20px;
+        left:270px;    
+    }
+
+    .line
+    {
+        height: 3px;
+        width:25px;
+        background-color:#FFFFFF;
+        display: block;
+        margin:5px 0px;
+        cursor: pointer;    
+    }
+    #sidebar.active
+    {
+        left:0px;
+    }
+    .item
+    {
+        text-decoration: none;
+        color: white;
+
+    }
+    #home,#about,#skills,#project,#contact
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 360px;
+        background-color: #000000;
+    
+
+    }
+    .profile-card
+   {
+
+        height: 410px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        border-radius: 20px;
+        background: #131414;
+        box-shadow: inset 5px 5px 14px #0c0c0c, 
+                    inset -5px -5px 14px #1a1c1c;
+    }
+    .profile
+    {
+      margin-top: 40px;
+      width: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #131414;
+      box-shadow: inset 17px 17px 35px #0c0c0c, 
+                  inset -17px -17px 35px #1a1c1c;
+
+     
+    }
+    .profile img
+    {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+            background: #131414;
+box-shadow: inset 17px 17px 35px #0c0c0c, 
+            inset -17px -17px 35px #1a1c1c;
+
+
+
+    }
+    .profile-card h3
+    {
+      font-size: 16px;
+      color: #ffffff;
+      font-family:verdana;
+      text-transform: uppercase;
+         
+    }
+    .profile-card p
+    {
+    margin-top: -10px;
+    font-size: 15px;
+    font-family:arial;
+    color: #ffffff;
+    font-weight: normal;
+    }
+    body{
+      zoom: -125%;
+      scroll-behavior: auto;
+    }
+    .profile-card .follow
+    {
+  
+      color:#cdcdcd;
+      width: 100px;
+      border: 0px;
+      text-decoration:none;
+      text-align:center;
+      border-radius: 5px;
+      font-family:arial;
+      font-weight: normal;
+      text-transform: capitalize;
+      padding: 10px 30px 10px 30px;
+      background: #131414;
+     box-shadow: inset 10px 10px 20px #080808, 
+            inset -10px -10px 20px #1e2020;
+
+    }
+    .profile-card button:hover
+    {
+      background-color:#000000;
+      border: 2px solid #000000;
+      font-weight: bolder;
+    }
+    .profile-card ul
+    {
+      list-style-type: none;
+      display: inline-flex; 
+    }
+    .profile-card li
+    {
+     text-align: center;
+     margin:20px 20px 20px 0px;
+    }
+    .fa-instagram,.fa-facebook,.fa-free-code-camp
+    {      
+      color: white;
+      padding: 10px;
+      width: 30px;
+      height:30px;
+      border-radius: 50%;
+      border-radius: 50px;
+      background: #131414;
+       box-shadow: inset 10px 10px 20px #080808, 
+            inset -10px -10px 20px #1e2020;
+    }
+   .profile-card button:hover,.fa-instagram:hover,.fa-facebook:hover,.fa-free-code-camp:hover
+    {
+        background-color: #000000;
+    }
+    .fa-free-code-camp
+    {
+        text-align:center;
+        width:35px;
+    }
+    .about-text 
+    {
+      margin-top:-50px;
+      width:70vw;
+      height: auto;
+      font-size:15px;
+      font-family:arial;
+      text-align: justify;
+      text-transform:capitalize ;
+      padding: 50px 30px 10px 30px;
+      color: white;    
+      border-radius: 5px;  
+          background: #131414;
+      box-shadow: inset 36px 36px 72px #080909, 
+            inset -36px -36px 72px #1e1f1f;
+    }
+    #skills
+    {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .skill-flex
+    {
+
+      padding: 10px;
+      margin-top: 0px;
+      margin-left:10px;
+      width:80vw;
+      background: #131414;
+      box-shadow: inset 5px 5px 10px #080909, 
+                  inset -5px -5px 10px #1e1f1f;
+    }
+    .skill-flex .title
+    {
+      font-weight: normal;
+      font-size:15px;
+      text-transform: uppercase;
+      background-color: transparent;
+      color:white;
+      margin: 10px;
+      padding: 10px;
+      font-family:Arial;
+    }
+    .skill
+    { 
+      width:auto;
+      padding:10px;
+      margin: 10px;
+      color: black;
+      font-size: 12px;
+      font-weight: bolder;
+      border-radius: 2px;      
+      border-radius: 10px;
+      text-transform: uppercase;
+      background:white;
+      font-family:Arial;
+      color:#2d2d2d;
+    }
+    .contact-flex form, .form
+    {
+      display: flex;
+      align-items: center;
+      flex-direction: column;      
+      justify-content: center;
+      background-color: black;
+      padding: 10px 40px 10px 40px;
+      border-radius: 5px; 
+      background: #131414;
+      box-shadow: inset 5px 5px 14px #0c0c0c, 
+                  inset -5px -5px 14px #1a1c1c;
+             width:70vw;
+       margin-top:-20px;
+    }
+    .contact-form input[type="text"],.contact-form input[type="email"],.contact-form textarea 
+    {
+      border: 0px;
+      width: 100%;
+      height: 30px;
+      margin-top: 10px;
+      border-radius:3px;
+      padding-left: 10px;      
+    }
+    .contact-flex h4, .section h4, .contact-form h4
+    {
+      color: white;
+      font-size: 20px; 
+      text-transform: capitalize;
+    }
+    ::placeholder
+    {
+      color: black;
+      font-family:Arial;
+      color:#888888;
+    }
+    .contact-flex textarea, .contact-form textarea
+    {
+      height: 150px;
+      padding-left: 10px;
+    }
+    .contact-form input, [type="submit"]
+    {
+      border: 0px;
+      margin-top: 10px;
+      border-radius: 5px;     
+      padding: 10px 20px;
+      font-weight: bolder;
+      font-family: sans-serif;
+      color:white;
+      text-transform: capitalize;
+           background: #131414;
+     box-shadow: inset 10px 10px 20px #080808, 
+            inset -10px -10px 20px #1e2020;
+    }
+    .code-flex, .project
+    {
+      display: flex;
+      overflow-y: auto;
+      padding:20px;
+      width: 260px;
+      padding-right: 30px;
+      border-radius: 10px;
+      background: #131414;
+      box-shadow: inset 5px 5px 14px #0c0c0c, 
+                  inset -5px -5px 14px #1a1c1c;
+    }
+    .item
+    {
+     border-radius:10px;
+      min-width: 300px;
+      height: 300px;
+      padding-top: 20px;
+    }
+    .codeflex img
+    {
+      margin-left: 20px;
+      
+       box-shadow: inset 5px 5px 10px #080808, 
+            inset -5px -5px 10px #1e2020;
+    }
+    #p-loader 
+      {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        right: 50%;
+        transform: translate(-50%,-50%);
+        margin:10px;
+        border: 13px solid black;
+        border-radius: 50%;
+        border-top: 13px solid  white;
+        width: 100px;
+        height: 100px;
+        color: white;
+        -webkit-animation: rp 3s linear
+        infinite;
+        animation: rp 3s linear infinite;
+     box-shadow: inset 10px 10px 20px #080808, 
+            inset -10px -10px 20px #1e2020;
+        }
+    @-webkit-keyframes rp 
+    {
+    0% {-webkit-transform: rotate(0deg);}
+      100% { -webkit-transform:
+      rotate(360deg); }
+    }
+
+@keyframes rp 
+{
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<script type="text/javascript">
+  document.html.style.zoom="125%"
+    function togglesidebar() 
+    {
+        document.getElementById("sidebar").style.left="0px";
+        document.getElementById("toggle").style.left="50px";
+        document.getElementById("sidebar").classList.toggle("active");
+        document.getElementById("toggle").style.display="none";
+    
+
+    }
+    function hidenav() 
+    {
+        document.getElementById("sidebar").style.left="-200px";
+        document.getElementById("toggle").style.left="210px";
+        document.getElementById("toggle").style.display="block";
+
+    }
+    function start()
+    {
+       myVar = setTimeout(displayp, 4000);
+
+    }
+    function displayp() {
+    
+    alert("welcome to Ism Ibrahim Personal portfolio website, Please Don't forget to Comment or drop a message 😇");
+    
+    document.getElementById("p-loader").style.display = "none";
+    document.getElementById("portfolio").style.display = "block";
+    AOS.init({
+        duration: 1000
+    })
+    }
+
+
+
+         // contact form variables
+      const form = document.querySelector("[data-form]");
+      const formInputs = document.querySelectorAll("[data-form-input]");
+      const formBtn = document.querySelector("[data-form-btn]");
+
+      // adding event of all input
+      for (let i = 0; i < flexInputs.length; i++) {
+        formInputs[i].addEventListener("input", function () {
+        
+          // input validation
+          if (form.checkValidity()) {
+            formBtn.removeAttribute("disabled");
+          } else {
+            formBtn.setAttribute("disabled");
+          }
+
+         });
+  }
+    
+  
+</script>
+    <title></title>
+</head>
+<body onload="start()">
+<div id="portfolio">
+      <div id="sidebar">
+        <span style='font-size:15px;color: white;float: right;margin: 10px;cursor: pointer;' onclick="hidenav();">&#10006;</span>
+          <div class="list">
+           
+             <ul>
+              <li><a href="#home" class="item" onclick="hidenav()">Home</a></li>
+              <li><a href="#about"  class="item" onclick="hidenav()">About </a></li>
+              <li><a href="#skills" class="item" onclick="hidenav()">skills</a></li>
+              <li><a href="#project" class="item" onclick="hidenav()">Portfolio</a></li>
+              <li><a href="#contact" class="item" onclick="hidenav()">Contact</a></li>
+             </ul>
+          </div>
+          <div id="toggle" onclick="togglesidebar()">
+              <span class="line" id="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+          </div>
+      </div>
+
+<div id="home" >
+    <div class="profile-card"   data-aos="zoom-out">
+                <div class="profile" >
+                  <img src="me.png">
+                </div>
+               
+                <h3>Ism Ibrahim</h3>
+                <p>Web Developer</p>
+                 <a href="https://www.twitter.com/ism_ibro" class="follow">follow</a>
+                             <ul class="profile-social-links">
+                        <li>
+                          <a href="https://twitter.com/ism_ibro">
+                           <i class="fa fa-free-code-camp" style="font-size:25px;padding-top:10px;padding-left:10px;"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.facebook.com/ism.ibro">
+                            <i class="fa fa-facebook" style="font-size:30px;color: white;"></i>
+                          </a>
+                        </li>                        
+                        <li>
+                          <a href="https://www.instagram.com/ism.ibro/">
+                           <i class="fa fa-instagram" style="font-size:30px; color: crimson;"></i>
+                          </a>
+                        </li>
+                </ul>    
+          </div>  
+         </div>
+<div id="about">
+     <div class="about-text" data-aos="zoom-out">
+           <h2>Who AM I ?</h2>
+           <p>since you are here , you probably want to know a bit about me right ? well i'm Ism Ibrahim final year civil engineering student and self-taught web developer and software Programmer. </p>     
+     </div>
+</div>
+     <div id="about">
+      <div class="about-text" data-aos="zoom-out">
+        <h2>What I do</h2>
+        <p> With years of experience in web development I had mastered the skill of understanding client requirements according to the latest trends. I've spent most of these years working across different areas of developement like front-end development, land page, school website, resturant website, and more Having worked on various project that are aready live, I can help with the best possible suggestions and ideal that we can proceed with. I can give you a variety of option we can work on together.
+          From understanding your requirements, Developing a blueprint and delivering the final product, I do everything that falls in between these lines.
+        </p>
+      </div>
+    </div>
+<div id="skills">
+  <h1 style="color:#ffffff; text-align:center;">My Skills</h1>
+  <div class="skill-flex" data-aos="zoom-out">
+              <p class="title">programming</p>
+              <p class="skill">Python / PHP</p>
+              <p class="title">Web Development skill</p>
+              <p class="skill">html / css / javascript / sql </p>
+      </div>
+    </div>
+</div>
+<div id="skills">
+  <div class="skill-flex" data-aos="zoom-out">
+    <center> 
+      <img src="h.svg" width="100px" height="100px"  alt="web SVG">
+    </center>
+    <h2 style="text-align: center;">WEB DEVELOPMENT</h2>
+    <p class="skill"> If you are looking for a developer who'll take over the research and development of your website, I am a well-established professional to help you with this.</p>
+</div>
+</div>
+<div id="skills">
+  <div class="skill-flex" data-aos="zoom-out">
+    <center>
+      <img src="wd.png" width="100px" height="100px"  alt="web SVG">
+    </center>
+    <h1 style="text-align:center;">WORDPRESS</h1>
+    <p class="skill">If you are looking for a user-friendly site that will attract more users, I can help you develope and build a platform with the latest and trendiest look and feel.</p>
+  </div>
+</div>
+<div id="project">
+  <h1 style="color: #ffffff;">My Portfolio</h1>
+    <div class="code-flex" data-aos="zoom-out">
+    
+      <div class="item">
+       <a href="https://amixan.wordpress.com"><img src="Screenshot (5).png" height="270px" width="230px" style="margin-left: 20px"></a>
+        
+      </div>
+       <div class="item">
+        <a href="#"><img src="Screenshot (39).png" height="270px" width="250px"></a>
+        
+      </div>
+       <div class="item">
+        <a href="#"><img src="Screenshot (22).png" height="270px" width="250px"></a>        
+      </div>
+       <div class="item">
+        <a href="#"> <img src="Screenshot (7).png" height="270px" width="240px" style="margin-left: 30px;"></a>
+      </div>
+      <div class="item">
+      <a href="#"><video src="vd.mp4" height="270px" width="240px" style="margin-left: 30px;"></a>
+      </div>
+    </div>
+</div>
+<section class="contact-form">
+<div id="contact">
+    <div class="contact-form" data-aos="zoom-out">
+            <h4 style="text-align: center;">Get In Touch</h4>
+            <form action="mailto:ism.web.developer@gmail.com" class="form" data-form>
+              <div class="input-wrapper">
+             <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input> 
+               <circle cx="70" cy="70" r="70"></circle>
+               <textarea name="message" class="form-input" placeholder="Message Or Comment" required data-form-input></textarea>
+               <button class="form-btn" type="submit" disable data form-btn >
+                <ion-icon name="paper-plane"></ion-icon>
+                <span>submit</span>
+              </button>
+              </form>
+         </div>
+   </div>
+
+</div>
+</section>
+<div id="p-loader"></div>
+</body>
+</html>
